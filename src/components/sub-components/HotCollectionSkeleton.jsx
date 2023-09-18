@@ -23,7 +23,6 @@ function HotCollectionSkeleton() {
       };
       
   return (
-    <>
             <Carousel infinite={true} responsive={responsive}>
               {new Array(6).fill(0).map((elem, index) => (
                 <div
@@ -45,7 +44,6 @@ function HotCollectionSkeleton() {
                 </div>
               ))}
             </Carousel>
-    </>
   )
 }
 
