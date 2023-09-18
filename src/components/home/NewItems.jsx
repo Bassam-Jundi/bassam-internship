@@ -62,7 +62,7 @@ const NewItems = () => {
       }
     }, [expiryDate]);
 
-    return remainingTime !== null ? remainingTime : "No expiry.";
+    return remainingTime !== null ? remainingTime : "No expiry";
   }
 
   return (
