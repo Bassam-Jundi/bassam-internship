@@ -115,8 +115,6 @@ const NewItems = () => {
                         </div>
                       </div>
                     </div>
-                  
-
                     <Link to={`/item-details/${elem.nftId}`}>
                       <img
                         src={elem.nftImage}
