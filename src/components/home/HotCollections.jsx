@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "react-multi-carousel/lib/styles.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -7,19 +6,25 @@ import HotCollectionMap from "../sub-components/HotCollectionMap";
 import HotCollectionSkeleton from "../sub-components/HotCollectionSkeleton";
 
 const HotCollections = () => {
-  const [data, setData] = useState([]);
+  const [collections, setCollections] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  async function fetchCollection() {
-    const { data } = await axios.get(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
-    );
-    setData(data);
-    setIsLoading(false);
-  }
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchCollection();
+    async function fetchCollections() {
+      try {
+        const { data } = await axios.get(
+          `https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`
+        );
+        setCollections(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(error.message); // Store the error message
+        setIsLoading(false);
+      }
+    }
+    fetchCollections();
   }, []);
 
   return (
@@ -33,10 +38,12 @@ const HotCollections = () => {
             </div>
           </div>
           {isLoading ? (
-            <HotCollectionSkeleton/>
-          ):(
-            <HotCollectionMap data={data}/>
-          ) }
+            <HotCollectionSkeleton />
+          ) : error ? (
+            <div className="error-message">Error: {error}</div>
+          ) : (
+            <HotCollectionMap data={collections} />
+          )}
         </div>
       </div>
     </section>
