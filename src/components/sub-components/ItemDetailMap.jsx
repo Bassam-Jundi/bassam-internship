@@ -6,7 +6,6 @@ function ItemDetailMap({ data, ethImage }) {
     window.scrollTo(0, 0);
   }, []);
   
-  console.log(data)
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">

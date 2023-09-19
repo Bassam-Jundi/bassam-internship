@@ -5,23 +5,26 @@ import { Link, useParams } from 'react-router-dom'
 
 function AuthorItemsMap() {
   const [authorPosts, setAuthorPosts] = useState([])
+  const [authorPostsProfile, setAuthorPostsProfile] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
-    window.scrollTo(0, 0);window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+
     async function fetchAuthorPosts() {
       try {
         const { data } = await axios.get(
           `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
         );
-
         setAuthorPosts(data);
+        setAuthorPostsProfile(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
     fetchAuthorPosts();
 }, []);
+
 
   return (
     <div className="container">
@@ -32,7 +35,7 @@ function AuthorItemsMap() {
           <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
             <div className="nft__item">
               <div className="author_list_pp">
-                <Link to={`/author`}>
+                <Link to={`/author/${authorPostsProfile.authorId}`}>
                   <img className="lazy" src={authorPosts.authorImage} alt="" />
                   <i className="fa fa-check"></i>
                 </Link>

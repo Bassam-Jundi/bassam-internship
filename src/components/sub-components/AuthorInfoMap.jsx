@@ -9,7 +9,7 @@ function AuthorInfoMap() {
     const {id} = useParams()
 
     useEffect(() => {
-        window.scrollTo(0, 0);window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         async function fetchAuthorInfo() {
           try {
             const { data } = await axios.get(
@@ -33,8 +33,6 @@ function AuthorInfoMap() {
     
         setClicked(!clicked);
       }
-
-    console.log(authorInfo)
 
   return (
     <div id="wrapper">
