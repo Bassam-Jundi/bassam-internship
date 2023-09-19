@@ -7,7 +7,7 @@ function TopSellersMap({ data }) {
     {data.map((data, index) => (
         <li key={index}>
           <div className="author_list_pp">
-            <Link to="/author">
+            <Link to={`/author/${data.authorId}`}>
               <img
                 className="lazy pp-author"
                 src={data.authorImage}
@@ -17,7 +17,7 @@ function TopSellersMap({ data }) {
             </Link>
           </div>
           <div className="author_list_info">
-            <Link to="/author">{data.authorName}</Link>
+            <Link to={`/author/${data.authorId}`}>{data.authorName}</Link>
             <span>{data.price} ETH</span>
           </div>
         </li>

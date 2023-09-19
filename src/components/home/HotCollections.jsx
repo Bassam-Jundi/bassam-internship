@@ -20,7 +20,7 @@ const HotCollections = () => {
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setError(error.message); // Store the error message
+        setError(error.message); 
         setIsLoading(false);
       }
     }

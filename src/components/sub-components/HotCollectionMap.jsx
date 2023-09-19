@@ -25,26 +25,26 @@ function HotCollectionMap({ data }) {
   return (
     <>
     <Carousel infinite={true} responsive={responsive}>
-              {data.map((elem, index) => (
+              {data.map((data, index) => (
                 <div
                   className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
                   key={index}
                 >
                   <div className="nft_coll">
                     <div className="nft_wrap">
-                      <Link to={`/item-details/${elem.nftId}`}>
+                      <Link to={`/item-details/${data.nftId}`}>
                         <img
-                          src={elem.nftImage}
+                          src={data.nftImage}
                           className="lazy img-fluid"
                           alt=""
                         />
                       </Link>
                     </div>
                     <div className="nft_coll_pp">
-                      <Link to="/author">
+                      <Link to={`/author/${data.authorId}`}>
                         <img
                           className="lazy pp-coll"
-                          src={elem.authorImage}
+                          src={data.authorImage}
                           alt=""
                         />
                       </Link>
@@ -52,9 +52,9 @@ function HotCollectionMap({ data }) {
                     </div>
                     <div className="nft_coll_info">
                       <Link to="/explore">
-                        <h4>{elem.title}</h4>
+                        <h4>{data.title}</h4>
                       </Link>
-                      <span>ERC-{elem.code}</span>
+                      <span>ERC-{data.code}</span>
                     </div>
                   </div>
                 </div>

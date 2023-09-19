@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function ItemDetailMap({ itemDetail, ethImage }) {
+function ItemDetailMap({ data, ethImage }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  console.log(data)
   return (
     <div id="wrapper">
       <div className="no-bottom no-top" id="content">
@@ -15,37 +16,37 @@ function ItemDetailMap({ itemDetail, ethImage }) {
             <div className="row">
               <div className="col-md-6 text-center">
                 <img
-                  src={itemDetail.nftImage}
+                  src={data.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
                   alt=""
                 />
               </div>
               <div className="col-md-6">
                 <div className="item_info">
-                  <h2>{itemDetail.title}</h2>
+                  <h2>{data.title}</h2>
                   <div className="item_info_counts">
                     <div className="item_info_views">
                       <i className="fa fa-eye"></i>
-                      {itemDetail.views}
+                      {data.views}
                     </div>
                     <div className="item_info_like">
                       <i className="fa fa-heart"></i>
-                      {itemDetail.likes}
+                      {data.likes}
                     </div>
                   </div>
-                  <p>{itemDetail.description}</p>
+                  <p>{data.description}</p>
                   <div className="d-flex flex-row">
                     <div className="mr40">
                       <h6>Owner</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to="/author">
-                            <img className="lazy" src={itemDetail.ownerImage} alt="" />
+                          <Link to={`/author/${data.creatorId}`}>
+                            <img className="lazy" src={data.ownerImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">{itemDetail.ownerName}</Link>
+                          <Link to={`/author/${data.creatorId}`}>{data.ownerName}</Link>
                         </div>
                       </div>
                     </div>
@@ -56,13 +57,13 @@ function ItemDetailMap({ itemDetail, ethImage }) {
                       <h6>Creator</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to="/author">
-                            <img className="lazy" src={itemDetail.creatorImage} alt="" />
+                          <Link to={`/author/${data.creatorId}`}>
+                            <img className="lazy" src={data.creatorImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">{itemDetail.creatorName}</Link>
+                          <Link to="/author">{data.creatorName}</Link>
                         </div>
                       </div>
                     </div>
@@ -70,7 +71,7 @@ function ItemDetailMap({ itemDetail, ethImage }) {
                     <h6>Price</h6>
                     <div className="nft-item-price">
                       <img src={ethImage} alt="" />
-                      <span>{itemDetail.price}</span>
+                      <span>{data.price}</span>
                     </div>
                   </div>
                 </div>
