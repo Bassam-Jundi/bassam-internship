@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import HotCollectionMap from "../sub-components/HotCollectionMap";
 import HotCollectionSkeleton from "../sub-components/HotCollectionSkeleton";
+import AOS from 'aos';
 
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
@@ -11,6 +12,7 @@ const HotCollections = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    AOS.init()
     async function fetchCollections() {
       try {
         const { data } = await axios.get(
@@ -32,7 +34,7 @@ const HotCollections = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in" className="text-center">
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>

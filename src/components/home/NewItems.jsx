@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import NewItemsMap from "../sub-components/NewItemsMap";
 import NewItemsSkeleton from "../sub-components/NewItemsSkeleton";
+import AOS from 'aos';
 
 const NewItems = () => {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ const NewItems = () => {
   };
 
   useEffect(() => {
+    AOS.init()
     window.scrollTo(0, 0);window.scrollTo(0, 0);
     async function fetchAuthorInfo() {
       try {

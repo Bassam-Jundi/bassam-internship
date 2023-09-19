@@ -1,25 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ExpiryCountdown from './ExpiryCountdown'
 import Carousel from 'react-multi-carousel'
+import AOS from 'aos';
 
 function NewItemsMap( { data, responsive}) {
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
     <>
     <section id="section-items" className="no-bottom">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-out">
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+
+          <div data-aos="fade-zoom-in" data-aos-delay="400" data-aos-easing="ease-in"> 
           <Carousel infinite={true} responsive={responsive}>
             {data.map((data, index) => (
               <div
-                className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
-                key={index}
+              className="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+              key={index}
               >
                 <div className="nft__item">
                   <div className="author_list_pp">
@@ -72,6 +79,7 @@ function NewItemsMap( { data, responsive}) {
               </div>
             ))}
           </Carousel>
+            </div>
         </div>
       </div>
     </section>
