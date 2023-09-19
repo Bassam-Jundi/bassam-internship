@@ -39,7 +39,7 @@ function ItemDetailMap({ data, ethImage }) {
                       <h6>Owner</h6>
                       <div className="item_author">
                         <div className="author_list_pp">
-                          <Link to={`/author/${data.creatorId}`}>
+                          <Link to={`/author/${data.ownerId}`}>
                             <img className="lazy" src={data.ownerImage} alt="" />
                             <i className="fa fa-check"></i>
                           </Link>
