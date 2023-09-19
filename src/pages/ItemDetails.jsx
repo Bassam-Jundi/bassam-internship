@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import ItemDetailMap from "../components/sub-components/ItemDetailMap";
 import ItemDetailSkeleton from "../components/sub-components/ItemDetailSkeleton";
@@ -31,7 +31,7 @@ const ItemDetails = () => {
       {loading ? (
         <ItemDetailSkeleton itemDetail={itemDetail} ethImage={EthImage} />
       ) : (
-        <ItemDetailMap itemDetail={itemDetail} ethImage={EthImage} />
+        <ItemDetailMap data={itemDetail} ethImage={EthImage} />
       )}
     </>
   );

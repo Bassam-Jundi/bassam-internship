@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom'
 
 function AuthorItemsMap() {
   const [authorPosts, setAuthorPosts] = useState([])
-  const [loading, setLoading] = useState(true)
   const { id } = useParams()
 
   useEffect(() => {
@@ -17,10 +16,8 @@ function AuthorItemsMap() {
         );
 
         setAuthorPosts(data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false);
       }
     }
     fetchAuthorPosts();

@@ -5,7 +5,7 @@ function ItemDetailMap({ data, ethImage }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   console.log(data)
   return (
     <div id="wrapper">

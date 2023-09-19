@@ -1,9 +1,7 @@
 import React from 'react'
-import HotCollectionSkeleton from './HotCollectionSkeleton'
 import Carousel from 'react-multi-carousel';
 import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
-import ExpiryCountdown from './ExpiryCountdown';
 
 function NewItemsSkeleton() {
     const responsive = {

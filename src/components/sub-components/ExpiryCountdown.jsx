@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function ExpiryCountdown({ data, expiryDate }) {
+function ExpiryCountdown({ expiryDate }) {
   const [remainingTime, setRemainingTime] = useState(null);
 
   useEffect(() => {

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 function AuthorInfoSkeleton() {
   return (
     <>
+        <Skeleton id="profile_banner"height={360} width="100%"/>
+
       <section aria-label="section">
         <div className="container">
           <div className="row">
@@ -33,8 +35,14 @@ function AuthorInfoSkeleton() {
                       <Skeleton height={20} width={60} />
                       followers
                     </div>
-                    <Link to="#" >
-                      {<Skeleton className="btn-main"height={42} width={132} />}
+                    <Link to="#">
+                      {
+                        <Skeleton
+                          className="btn-main"
+                          height={42}
+                          width={132}
+                        />
+                      }
                     </Link>
                   </div>
                 </div>

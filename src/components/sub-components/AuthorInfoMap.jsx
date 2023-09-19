@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import AuthorItems from '../author/AuthorItems'
 import axios from 'axios';
 
 
 function AuthorInfoMap() {
     const [authorInfo, setAuthorInfo] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
     const [clicked, setClicked] = useState(false)
-    const [followers, setFollowers] = useState(0)
     const {id} = useParams()
 
     useEffect(() => {
@@ -20,10 +17,8 @@ function AuthorInfoMap() {
             );
   
             setAuthorInfo(data);
-            setIsLoading(false);
           } catch (error) {
             console.error("Error fetching data:", error);
-            setIsLoading(false);
           }
         }
         fetchAuthorInfo();

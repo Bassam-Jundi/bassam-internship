@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom'
+import AOS from 'aos';
 
 function HotCollectionMap({ data }) {
+  
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -23,7 +29,7 @@ function HotCollectionMap({ data }) {
       };
 
   return (
-    <>
+    <div data-aos="fade-zoom-in" data-aos-delay="300" data-aos-easing="ease-in">
     <Carousel infinite={true} responsive={responsive}>
               {data.map((data, index) => (
                 <div
@@ -60,7 +66,7 @@ function HotCollectionMap({ data }) {
                 </div>
               ))}
             </Carousel>
-    </>
+    </div>
   )
 }
 
