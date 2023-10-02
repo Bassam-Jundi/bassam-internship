@@ -5,6 +5,8 @@ function ItemDetailMap({ data, ethImage }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  console.log(data)
   
   return (
     <div id="wrapper">
@@ -45,7 +47,7 @@ function ItemDetailMap({ data, ethImage }) {
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to={`/author/${data.creatorId}`}>{data.ownerName}</Link>
+                          <Link to={`/author/${data.ownerId}`}>{data.ownerName}</Link>
                         </div>
                       </div>
                     </div>
@@ -62,7 +64,7 @@ function ItemDetailMap({ data, ethImage }) {
                           </Link>
                         </div>
                         <div className="author_list_info">
-                          <Link to="/author">{data.creatorName}</Link>
+                          <Link to={`/author/${data.creatorId}`}>{data.creatorName}</Link>
                         </div>
                       </div>
                     </div>
